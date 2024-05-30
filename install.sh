@@ -211,3 +211,35 @@ make -j4
 make install
 cd ..
 rm -rf boost_build
+
+# rocksdb
+if [ -d rocksdb_build ]; then
+    rm -rf rocksdb_build
+fi
+mkdir -p rocksdb_build
+cd rocksdb_build
+cmake ../rocksdb-6.29.3 -DCMAKE_INSTALL_PREFIX=${EA_PREFIX} \
+    -DCMAKE_PREFIX_PATH=${EA_PREFIX} \
+    -DCMAKE_POSITION_INDEPENDENT_CODE=ON \
+    -DCMAKE_BUILD_TYPE=Release
+
+make -j4
+make install
+cd ..
+rm -rf rocksdb_build
+
+# faiss
+if [ -d faiss_build ]; then
+    rm -rf faiss_build
+fi
+mkdir -p faiss_build
+cd faiss_build
+cmake ../faiss-1.8.0 -DCMAKE_INSTALL_PREFIX=${EA_PREFIX} \
+    -DCMAKE_PREFIX_PATH=${EA_PREFIX} \
+    -DCMAKE_POSITION_INDEPENDENT_CODE=ON \
+    -DCMAKE_BUILD_TYPE=Release
+
+make -j4
+make install
+cd ..
+rm -rf faiss_build

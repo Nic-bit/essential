@@ -41,3 +41,5 @@ bld
 benchmark_build
 gtest_build
 boost_build
+rocksdb_build
+faiss_build
